@@ -10,9 +10,9 @@ import SwiftUI
 struct TrandingCreatorsView: View {
     
     let user:[User] = [
-        .init(name: "Ammy Adams", nameImages: "billy"),
-        .init(name: "Billy Childs", nameImages: "cam"),
-        .init(name: "Sam Smith", nameImages: "sam")
+        .init(id: 0, name: "Ammy Adams", nameImages: "billy"),
+        .init(id: 1, name: "Billy Childs", nameImages: "cam"),
+        .init(id: 2, name: "Sam Smith", nameImages: "sam")
     ]
     
     var body: some View {
@@ -32,28 +32,41 @@ struct TrandingCreatorsView: View {
              
                 HStack(alignment: .top, spacing: 8) {
                         ForEach(user, id: \.self) { users in
-                            //VStack(alignment: .center, spacing: 8) {
-                                VStack {
-                                    Image(users.nameImages)
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 60, height: 60)
-                                        .cornerRadius(60)
-                                    Text(users.name)
-                                        .font(.system(size: 12, weight: .semibold, design: .monospaced))
-                                        .multilineTextAlignment(.center)
-                                }
-                                .frame(width: 60)
-                             //   .background(Color(.init(white: 0.9, alpha: 1)))
-                             //   .cornerRadius(.infinity)
-                                .shadow(color: .gray, radius: 5, x: 0.0, y: 4.0)
-                                .padding(.bottom)
-                            
-                          //  }
+                            NavigationLink {
+                                UserDetailsView(user: users)
+                            } label: {
+                              //  UserDetailsView(user: users)
+                               DiscoverUserView(users: users)
+                            }
                         }
                     }
             }.padding(.horizontal)
+                .padding(.bottom)
         }
+    }
+}
+
+struct DiscoverUserView: View {
+    
+    let users: User
+    
+    var body: some View {
+        //VStack(alignment: .center, spacing: 8) {
+            VStack {
+                Image(users.nameImages)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 60, height: 60)
+                    .cornerRadius(60)
+                Text(users.name)
+                    .font(.system(size: 12, weight: .semibold, design: .monospaced))
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(Color(.label))
+            }
+            .frame(width: 60)
+         //   .background(Color(.init(white: 0.9, alpha: 1)))
+         //   .cornerRadius(.infinity)
+            .shadow(color: .gray, radius: 5, x: 0.0, y: 4.0)
     }
 }
 

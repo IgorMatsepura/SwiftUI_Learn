@@ -66,7 +66,8 @@ struct Discover: View {
                 presentationMode.wrappedValue.dismiss()
 
             }, label: {
-                Text("Help")
+                Text("Close")
+                    .foregroundColor(.black)
             }))
           //  .padding()
         }

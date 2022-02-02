@@ -30,6 +30,8 @@ struct RestaurantPhotosView: View {
     ]
 
     @State var mode = "grid"
+    @State var isFulScreenModal = false
+    @State var selectedPhotoIndex = 0
     
     init() {
         UISegmentedControl.appearance().backgroundColor = .black
@@ -47,7 +49,6 @@ struct RestaurantPhotosView: View {
         GeometryReader { proxy in
             ScrollView {
                //Grid
-                
                 Picker("Test", selection: $mode) {
                     Text("Grid").tag("grid")
                     Text("List").tag("list")
@@ -55,21 +56,79 @@ struct RestaurantPhotosView: View {
                 }.pickerStyle(SegmentedPickerStyle())
                     .padding()
                     
+                Spacer()
+                    .fullScreenCover(isPresented: $isFulScreenModal, content: {
+                        ZStack(alignment: .topLeading) {
+                            Color.black.ignoresSafeArea()
+                            
+                            RestaurantCarouselView(imagesName: photosUrl, selectedIndex: selectedPhotoIndex)
+                            
+                            Button {
+                                isFulScreenModal.toggle()
+                            } label: {
+                               Image(systemName: "xmark")
+                                    .font(.system(size: 32, weight: .bold))
+                                    .foregroundColor(.white)
+                                    .padding()
+                            }
+
+                        }
+                    })
+                    .opacity(isFulScreenModal ? 1 : 0)
+//                Button {
+//                    isFulScreenModal.toggle()
+//                } label: {
+//                    Text("Full Screen modal")
+//                }
                 
                 if mode == "grid" {
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: proxy.size.width / 3 - 6, maximum: 300), spacing: 2)
                                        ], spacing: 2) {
                         ForEach(photosUrl, id:\.self) { num in
-                            KFImage(URL(string: num))
-    //                       Image("tapas")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width:  proxy.size.width / 3 - 3, height:  proxy.size.width / 3)
-                                .clipped()
+                            
+                            Button {
+                                self.selectedPhotoIndex = photosUrl.firstIndex(of: num) ?? 0
+                                isFulScreenModal.toggle()
+                            } label: {
+                                KFImage(URL(string: num))
+        //                       Image("tapas")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width:  proxy.size.width / 3 - 3, height:  proxy.size.width / 3)
+                                    .clipped()
+                            }
+
+
                         }
                     }.padding(.horizontal, 2)
                 } else {
-                    Text("List")
+                    VStack(alignment: .leading, spacing: 8) {
+                        ForEach(photosUrl, id:\.self) { num in
+                            KFImage(URL(string: num))
+                                .resizable()
+                                .scaledToFill()
+                                //.frame(height: 200)
+                            HStack {
+                                Image(systemName: "heart")
+                                Image(systemName: "bubble.right")
+                                Image(systemName: "paperplane")
+                                Spacer()
+                                Image(systemName: "bookmark")
+
+                            }.padding(.horizontal, 8)
+                                .font(.system(size: 24))
+                            Text("gfdbfd df gfh fgd hdfg hgfdgfdhgfdhdfg fgdh dfg hgfd hfghgfh gfh gfhdfghfdg gfh gfh gdfh gdfh dfgh dgf dgfhgfdhgfhgfhfghfgh.\n\nGreat job everyone!")
+                                .font(.system(size: 14))
+                                .padding(.horizontal, 8)
+//                                .padding(.bottom, 4)
+                            Text("Posted by 11/04/2020")
+                                .font(.system(size: 14))
+                                .padding(.bottom, 4)
+                                .padding(.horizontal, 8)
+                                .foregroundColor(.gray)
+                        }
+                    }.padding(.bottom)
+
                 }
  
         }

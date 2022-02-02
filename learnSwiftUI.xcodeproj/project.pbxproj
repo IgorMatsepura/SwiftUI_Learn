@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D10B27EC27A82E4F00111F8D /* RestaurantPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10B27EB27A82E4F00111F8D /* RestaurantPhotosView.swift */; };
+		D10B27EE27A971FD00111F8D /* RestaurantCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10B27ED27A971FD00111F8D /* RestaurantCarouselView.swift */; };
+		D10B27F127A97D3F00111F8D /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10B27F027A97D3F00111F8D /* UserDetailsView.swift */; };
 		D111CF6F279016CA00227CD0 /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = D111CF6E279016CA00227CD0 /* Discover.swift */; };
 		D11B4B2E275FA22600A2BB4B /* learnSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11B4B2D275FA22600A2BB4B /* learnSwiftUIApp.swift */; };
 		D11B4B30275FA22600A2BB4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11B4B2F275FA22600A2BB4B /* ContentView.swift */; };
@@ -40,6 +42,8 @@
 
 /* Begin PBXFileReference section */
 		D10B27EB27A82E4F00111F8D /* RestaurantPhotosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantPhotosView.swift; sourceTree = "<group>"; };
+		D10B27ED27A971FD00111F8D /* RestaurantCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCarouselView.swift; sourceTree = "<group>"; };
+		D10B27F027A97D3F00111F8D /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
 		D111CF6E279016CA00227CD0 /* Discover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
 		D11B4B2A275FA22600A2BB4B /* learnSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = learnSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D11B4B2D275FA22600A2BB4B /* learnSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = learnSwiftUIApp.swift; sourceTree = "<group>"; };
@@ -82,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D10B27EF27A97D1900111F8D /* User */ = {
+			isa = PBXGroup;
+			children = (
+				D10B27F027A97D3F00111F8D /* UserDetailsView.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		D111CF692785AFAA00227CD0 /* SimpleList */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +104,7 @@
 		D111CF6D279016A600227CD0 /* Discover */ = {
 			isa = PBXGroup;
 			children = (
+				D10B27EF27A97D1900111F8D /* User */,
 				D1907E2C27A2DB680071AFC0 /* Destanation */,
 				D12621602795A8150063DDFD /* DiscoverCategory */,
 				D126215B2795A7690063DDFD /* TrandingCreator */,
@@ -188,6 +201,7 @@
 				D12621552795A6F00063DDFD /* PopularRestarauntView.swift */,
 				D1907E2F27A439D30071AFC0 /* RestarantDetailsView.swift */,
 				D10B27EB27A82E4F00111F8D /* RestaurantPhotosView.swift */,
+				D10B27ED27A971FD00111F8D /* RestaurantCarouselView.swift */,
 			);
 			path = PopularRestaraunt;
 			sourceTree = "<group>";
@@ -331,9 +345,11 @@
 				D126215F2795A7F30063DDFD /* Category.swift in Sources */,
 				D13B9840277DE56E0070AC7F /* AddCardForm.swift in Sources */,
 				D126214C27958ADA0063DDFD /* Place.swift in Sources */,
+				D10B27EE27A971FD00111F8D /* RestaurantCarouselView.swift in Sources */,
 				D11B4B30275FA22600A2BB4B /* ContentView.swift in Sources */,
 				D12621532795A6C30063DDFD /* Restaurant.swift in Sources */,
 				D11B4B3A275FA22900A2BB4B /* learnSwiftUI.xcdatamodeld in Sources */,
+				D10B27F127A97D3F00111F8D /* UserDetailsView.swift in Sources */,
 				D126215A2795A7490063DDFD /* User.swift in Sources */,
 				D126215D2795A7900063DDFD /* TrandingCreatorsView.swift in Sources */,
 				D13B983D277DBFF00070AC7F /* MainView.swift in Sources */,
