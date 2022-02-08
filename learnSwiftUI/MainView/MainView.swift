@@ -95,6 +95,7 @@ struct MainView: View {
 //                .onAppear {
 //                    shouldPresentAddCardForm.toggle()
 //                }
+                // ad tot test i git merge
                 Spacer()
                     .fullScreenCover(isPresented: $shouldPresentAddCardForm, onDismiss: nil) {
                         AddCardForm()
